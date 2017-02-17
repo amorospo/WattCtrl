@@ -1,14 +1,14 @@
 <?php
-include '/var/www/MyScripts/AmpCtrl/VarOld.php';
+include '/var/www/MyScripts/WattCtrl/VarOld.php';
 ?>
 <form method="post" action="formvar.php">
   TUTTI I VALORI SONO OBBLIGATORI (il valore "0" non è ammesso in nessun campo. Per inserire valori decimali usare il punto, non la virgola):<br><br>
   1 Inserisci il nome del luogo dove è attivo il monitoraggio che comparirà nell'oggetto delle email (default "Mio sito")<br>
   <input type="text" name="site" size="60" value="<?php echo $site;?>"><br><br>
-  2 Inserisci il percorso completo del file temporaneo creato dalla lettura del contatore SDM (default: /dev/shm/metern1.txt)<br>
-  <input type="text" name="Amp" size="60" value="<?php echo $Amp;?>"><br><br>
-  3 Inserisci l'id della riga realtiva alla tensione del file temporaneo creato dalla lettura del contatore SDM (default: 1_2)<br>
-  <input type="text" name="met_A" size="60" value="<?php echo $met_A;?>"><br><br>
+  2 Inserisci il percorso completo del file temporaneo creato dalla lettura del contatore SDM (default: /dev/shm/metern2.txt)<br>
+  <input type="text" name="Watt" size="60" value="<?php echo $Watt;?>"><br><br>
+  3 Inserisci l'id della riga realtiva alla tensione del file temporaneo creato dalla lettura del contatore SDM (default: 2)<br>
+  <input type="text" name="met_W" size="60" value="<?php echo $met_W;?>"><br><br>
   4 Inserisci i dati del server smtp che usi per inviare le email (default: smtp.gmail.com)<br>
   <input type="text" name="smtp_S" size="60" value="<?php echo $smtp_S;?>"><br><br>
   5 Inserisci la porta di ascolto del server smtp che usi per inviare le email (default: 587)<br>
@@ -19,12 +19,12 @@ include '/var/www/MyScripts/AmpCtrl/VarOld.php';
   <input type="text" name="pwd" size="60" value="<?php echo $pwd;?>"><br><br>
   8 Inserisci gli indirizzi email dei destinatari dei messaggi di allarme (per inserire più indirizzi utilizzare la virgola senza spazi. Ad es.: email1@email.com,email2@email.com,ecc)<br>
   <input type="text" name="to_addrs" size="60" value="<?php echo $to_addrs;?>"><br><br>
-  9 Inserisci il valore in Ampere sotto il quale inviare un messaggio di allarme impianto spento (default: 0 NON MODIFICABILE)<br>
+  9 Inserisci il valore in Watt sotto il quale inviare un messaggio di allarme impianto spento (default: 0 NON MODIFICABILE)<br>
   <!--input type="text" name="Sw_Off" size="60" value="<?php echo $Sw_Off;?>"><br--!><br>
-  10 Inserisci il valore in Ampere sotto il quale inviare un messaggio di allarme corrente assorbita bassa (default: 1)<br>
-  <input type="text" name="LowA" size="60" value="<?php echo $LowA;?>"><br><br>
-  11 Inserisci il valore in Ampere sotto il quale inviare un messaggio di allarme corrente assorbita alta (default: 14)<br>
-  <input type="text" name="HiA" size="60" value="<?php echo $HiA;?>"><br><br>
+  10 Inserisci il valore in Watt sotto il quale inviare un messaggio di allarme consumo basso (default: 100)<br>
+  <input type="text" name="LowW" size="60" value="<?php echo $LowW;?>"><br><br>
+  11 Inserisci il valore in Watt sotto il quale inviare un messaggio di allarme cosumo alto (default: 3000)<br>
+  <input type="text" name="HiW" size="60" value="<?php echo $HiW;?>"><br><br>
   12 Inserisci il valore in secondi del tempo di refresh dello script (default: 30)<br>
   <input type="text" name="lapse" size="60" value="<?php echo $lapse;?>"><br><br>
   <input type="submit" value="Salva i dati">  
