@@ -34,13 +34,13 @@ def chk():
 
 #Let MeterN write first data
 time.sleep(10)
-file_W = linecache.getline(Watt,4)
+file_W = linecache.getline(Watt,1)
 
 # Loop starts
 while file_W.startswith(met_W) is True:
 
 	# Reading files and data
-       	Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+       	Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 	time.sleep(1)
        	chk()
         time.sleep(1)
@@ -53,7 +53,7 @@ while file_W.startswith(met_W) is True:
 		while True: 
 			if Watt_num <= Sw_Off:
                        		time.sleep(5)
-		        	Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+		        	Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 				chk()
 			else:
 				#routine Power Outage end
@@ -64,7 +64,7 @@ while file_W.startswith(met_W) is True:
 					break
 				else:
 					time.sleep(2)
-				       	Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+				       	Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 					chk()
                        	        	break
 
@@ -76,7 +76,7 @@ while file_W.startswith(met_W) is True:
 		while True:
    	   		if Watt_num > Sw_Off and Watt_num <= LowW:				
 	               		time.sleep(5)
-		        	Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+		        	Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 				chk()
                         else:	
 				#routine Low wattage alarm end
@@ -87,7 +87,7 @@ while file_W.startswith(met_W) is True:
                               		break
 				else:
 					time.sleep(2)
-				        Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+				        Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 					chk()
                                        	break
 	
@@ -99,7 +99,7 @@ while file_W.startswith(met_W) is True:
 		while True:
   			if Watt_num >= HiW:
 				time.sleep(5)
-		        	Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+		        	Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 				chk()
                         else:
 				#routine High wattage alarm end
@@ -110,14 +110,14 @@ while file_W.startswith(met_W) is True:
                               		break
 				else:
 					time.sleep(2)
-			        	Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+			        	Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 					chk()
 	                               	break
 
 	#Routine normal wattage
 	else:	
 		time.sleep(lapse)
-	       	Watt_num = float((linecache.getline(Watt,4)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
+	       	Watt_num = float((linecache.getline(Watt,1)).replace((''.join([met_W,"("]))," ").replace("*W)"," ").strip())
 		chk()
 
 #Routine reading file error
@@ -127,7 +127,7 @@ else:
        	send_msg()
 	while True:
 		if file_W.startswith(met_W) is False:	
-			file_W = linecache.getline(Watt,4)
+			file_W = linecache.getline(Watt,1)
 			chk()
     			time.sleep(5)
 		else:
